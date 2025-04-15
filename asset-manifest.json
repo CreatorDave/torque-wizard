@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/torque-wizard/static/css/main.f855e6bc.css",
+    "main.js": "/torque-wizard/static/js/main.28e0413c.js",
+    "static/js/453.ec840252.chunk.js": "/torque-wizard/static/js/453.ec840252.chunk.js",
+    "index.html": "/torque-wizard/index.html",
+    "main.f855e6bc.css.map": "/torque-wizard/static/css/main.f855e6bc.css.map",
+    "main.28e0413c.js.map": "/torque-wizard/static/js/main.28e0413c.js.map",
+    "453.ec840252.chunk.js.map": "/torque-wizard/static/js/453.ec840252.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.28e0413c.js"
+  ]
+}
