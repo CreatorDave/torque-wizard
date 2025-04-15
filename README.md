@@ -1,46 +1,88 @@
-# Getting Started with Create React App
+# TorqueWizard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern web application for managing and looking up torque specifications for various mechanical components across different industries.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Browse torque specifications by category and subcategory
+- Search for specific torque specifications
+- View detailed information including torque values, units, and notes
+- Responsive design for desktop and mobile use
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend**: React, TypeScript, Material-UI
+- **Backend**: Node.js, Express
+- **Data**: JSON-based data structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```
+torque-wizard/
+├── server/             # Backend server
+│   ├── src/            # Server source code
+│   │   ├── data.js     # Sample data
+│   │   └── index.js    # Server entry point
+│   └── package.json    # Server dependencies
+└── torque-wizard-app/  # Frontend application
+    ├── src/            # Frontend source code
+    │   ├── components/ # React components
+    │   ├── services/   # API services
+    │   └── types/      # TypeScript type definitions
+    └── package.json    # Frontend dependencies
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/torque-wizard.git
+   cd torque-wizard
+   ```
 
-### `npm run eject`
+2. Install backend dependencies:
+   ```
+   cd server
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Install frontend dependencies:
+   ```
+   cd ../torque-wizard-app
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running the Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Start the backend server:
+   ```
+   cd server
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Start the frontend application:
+   ```
+   cd torque-wizard-app
+   npm start
+   ```
 
-## Learn More
+3. Open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Sample torque data is for demonstration purposes only
+- Always verify torque specifications against manufacturer guidelines
