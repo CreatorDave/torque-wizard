@@ -2,8 +2,8 @@ services:
   - type: web
     name: torque-wizard-api
     env: node
-    buildCommand: cd server && npm install
-    startCommand: cd server && node src/index.js
+    buildCommand: cd server && npm install && npm run build
+    startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -15,11 +15,13 @@ services:
   - type: web
     name: torque-wizard-frontend
     env: static
-    buildCommand: cd torque-wizard-app && npm install && npm run build
+    buildCommand: cd torque-wizard-app && npm install && CI=false npm run build
     staticPublishPath: torque-wizard-app/build
     envVars:
       - key: REACT_APP_API_URL
         value: https://torque-wizard-api.onrender.com
+      - key: CI
+        value: false
     headers:
       - path: /*
         name: Cache-Control
