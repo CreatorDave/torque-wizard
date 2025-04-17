@@ -2,8 +2,11 @@ services:
   - type: web
     name: torque-wizard-api
     env: node
-    buildCommand: cd server && npm install
-    startCommand: cd server && NODE_ENV=production node src/index.js
+    buildCommand: |
+      cd server
+      npm install
+      cp -r src/* .
+    startCommand: cd server && NODE_ENV=production node index.js
     envVars:
       - key: NODE_ENV
         value: production
