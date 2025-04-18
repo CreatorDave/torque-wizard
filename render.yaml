@@ -13,19 +13,26 @@ services:
         value: 10000
     healthCheckPath: /health
     autoDeploy: true
+    plan: free
 
   - type: web
     name: torque-wizard-frontend
     env: static
-    buildCommand: cd torque-wizard-app && npm install && CI=false npm run build
+    buildCommand: |
+      cd torque-wizard-app
+      npm install
+      NODE_OPTIONS=--max_old_space_size=2048 CI=false npm run build
     staticPublishPath: torque-wizard-app/build
     envVars:
       - key: REACT_APP_API_URL
         value: https://torque-wizard-api.onrender.com
       - key: CI
         value: false
+      - key: NODE_OPTIONS
+        value: --max_old_space_size=2048
     headers:
       - path: /*
         name: Cache-Control
         value: no-cache
-    autoDeploy: true 
+    autoDeploy: true
+    plan: free 

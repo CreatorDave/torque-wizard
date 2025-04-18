@@ -7,7 +7,7 @@ const port = process.env.PORT || 3001;
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: ['https://creatordave.github.io', 'http://localhost:3000'],
+  origin: ['https://creatordave.github.io', 'http://localhost:3000', 'https://torque-wizard-frontend.onrender.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
