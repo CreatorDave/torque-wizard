@@ -13,6 +13,8 @@ services:
         value: 10000
       - key: NODE_VERSION
         value: 18.17.1
+      - key: NODE_OPTIONS
+        value: --max_old_space_size=4096
     healthCheckPath: /health
     autoDeploy: true
     plan: free
