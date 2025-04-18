@@ -14,6 +14,7 @@ services:
     healthCheckPath: /health
     autoDeploy: true
     plan: free
+    nodeVersion: 18.17.1
 
   - type: web
     name: torque-wizard-frontend
@@ -32,9 +33,12 @@ services:
         value: --max_old_space_size=4096
       - key: GENERATE_SOURCEMAP
         value: false
+      - key: PUBLIC_URL
+        value: https://torque-wizard-frontend.onrender.com
     headers:
       - path: /*
         name: Cache-Control
         value: no-cache
     autoDeploy: true
-    plan: free 
+    plan: free
+    nodeVersion: 18.17.1 

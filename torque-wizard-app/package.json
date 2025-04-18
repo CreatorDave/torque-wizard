@@ -2,7 +2,7 @@
   "name": "torque-wizard-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://creatordave.github.io/torque-wizard",
+  "homepage": "https://torque-wizard-frontend.onrender.com",
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -29,9 +29,7 @@
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -51,10 +49,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "gh-pages": "^6.3.0"
-  },
   "resolutions": {
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "i18next": "23.7.16",
+    "react-i18next": "14.0.5"
   }
 }
