@@ -21,4 +21,6 @@ export interface TorqueSpec {
   unit: 'Nm' | 'ft-lb' | 'in-lb';
   notes?: string;
   lastUpdated: string;
-} 
+}
+
+export type Language = 'en' | 'es' | 'fr' | 'de' | 'zh' | 'ja' | 'ru' | 'ar'; 

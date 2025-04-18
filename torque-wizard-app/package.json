@@ -53,5 +53,8 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
+  },
+  "resolutions": {
+    "typescript": "4.9.5"
   }
 }

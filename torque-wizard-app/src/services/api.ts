@@ -29,14 +29,18 @@ export const api = {
   
   async getTorqueSpecs(categoryId?: string, subcategoryId?: string): Promise<TorqueSpec[]> {
     try {
-      let url = `${API_BASE_URL}/categories`;
+      let url = `${API_BASE_URL}/torque-specs`;
+      const params: Record<string, string> = {};
+      
       if (categoryId) {
-        url += `/${categoryId}`;
-        if (subcategoryId) {
-          url += `/subcategories/${subcategoryId}`;
-        }
+        params.categoryId = categoryId;
       }
-      const response = await axios.get(url);
+      
+      if (subcategoryId) {
+        params.subcategoryId = subcategoryId;
+      }
+      
+      const response = await axios.get(url, { params });
       return response.data || [];
     } catch (error) {
       console.error('Error fetching torque specs:', error);
@@ -46,7 +50,9 @@ export const api = {
   
   async searchTorqueSpecs(query: string): Promise<TorqueSpec[]> {
     try {
-      const response = await axios.get(`${API_BASE_URL}/search?q=${encodeURIComponent(query)}`);
+      const response = await axios.get(`${API_BASE_URL}/search`, {
+        params: { q: query }
+      });
       return response.data || [];
     } catch (error) {
       console.error('Error searching torque specs:', error);

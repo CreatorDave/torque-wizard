@@ -57,6 +57,34 @@ app.get('/api/categories/:categoryId/subcategories/:subcategoryId', (req, res) =
   res.json(subcategory);
 });
 
+// Get all torque specs
+app.get('/api/torque-specs', (req, res) => {
+  const { categoryId, subcategoryId } = req.query;
+  
+  let specs = [];
+  
+  if (categoryId) {
+    const category = categories.find(c => c.id === categoryId);
+    if (!category) {
+      return res.status(404).json({ message: 'Category not found' });
+    }
+    
+    if (subcategoryId) {
+      const subcategory = category.subcategories.find(s => s.id === subcategoryId);
+      if (!subcategory) {
+        return res.status(404).json({ message: 'Subcategory not found' });
+      }
+      specs = subcategory.items;
+    } else {
+      specs = category.subcategories.flatMap(s => s.items);
+    }
+  } else {
+    specs = categories.flatMap(c => c.subcategories.flatMap(s => s.items));
+  }
+  
+  res.json(specs);
+});
+
 // Search endpoint
 app.get('/api/search', (req, res) => {
   const query = req.query.q?.toLowerCase() || '';
@@ -69,26 +97,15 @@ app.get('/api/search', (req, res) => {
   
   categories.forEach(category => {
     category.subcategories.forEach(subcategory => {
-      if (subcategory.specifications) {
-        subcategory.specifications.forEach(spec => {
+      if (subcategory.items) {
+        subcategory.items.forEach(item => {
           if (
-            spec.name.toLowerCase().includes(query) ||
+            item.name.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query) ||
             category.name.toLowerCase().includes(query) ||
             subcategory.name.toLowerCase().includes(query)
           ) {
-            results.push({
-              id: spec.id,
-              name: spec.name,
-              categoryId: category.id,
-              subcategoryId: subcategory.id,
-              category: category.name,
-              subcategory: subcategory.name,
-              description: `${spec.name} for ${category.name} - ${subcategory.name}`,
-              torqueValue: Math.floor(Math.random() * 100) + 10, // Mock data
-              unit: 'Nm',
-              notes: `This is a sample torque specification for ${spec.name}`,
-              lastUpdated: new Date().toISOString()
-            });
+            results.push(item);
           }
         });
       }
