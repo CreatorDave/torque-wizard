@@ -11,6 +11,8 @@ services:
         value: production
       - key: PORT
         value: 10000
+      - key: NODE_VERSION
+        value: 18.17.1
     healthCheckPath: /health
     autoDeploy: true
     plan: free
@@ -34,6 +36,8 @@ services:
         value: false
       - key: PUBLIC_URL
         value: https://torque-wizard-frontend.onrender.com
+      - key: NODE_VERSION
+        value: 18.17.1
     headers:
       - path: /*
         name: Cache-Control
