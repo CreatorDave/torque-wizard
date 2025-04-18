@@ -21,15 +21,13 @@ services:
     buildCommand: |
       cd torque-wizard-app
       npm install --legacy-peer-deps
-      NODE_OPTIONS=--max_old_space_size=2048 CI=false npm run build
+      CI=false npm run build
     staticPublishPath: torque-wizard-app/build
     envVars:
       - key: REACT_APP_API_URL
         value: https://torque-wizard-api.onrender.com
       - key: CI
         value: false
-      - key: NODE_OPTIONS
-        value: --max_old_space_size=2048
     headers:
       - path: /*
         name: Cache-Control
