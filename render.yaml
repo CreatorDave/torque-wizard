@@ -28,6 +28,8 @@ services:
         value: https://torque-wizard-api.onrender.com
       - key: CI
         value: false
+      - key: NODE_OPTIONS
+        value: --max_old_space_size=4096
     headers:
       - path: /*
         name: Cache-Control
